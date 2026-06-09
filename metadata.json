@@ -1,0 +1,9 @@
+{
+    "id": "Afterglow",
+    "name": "Afterglow",
+    "author": ["LunaeJP"],
+    "description": "A Vanilla+ Balatro mod designed around making balanced Jokers, along with buffing useless features.",
+    "prefix": "afterglow",
+    "main_file": "main.lua",
+    "version": "0.1.0"
+}
