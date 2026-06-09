@@ -21,6 +21,13 @@ SMODS.Atlas {
     py = 95
 }
 
+SMODS.Atlas {
+    key = 'vouchers',
+    path = 'vouchers.png',
+    px = 71,
+    py = 95
+}
+
 --#endregion
 
 --#region File Loading
@@ -33,6 +40,16 @@ end
 local consumables_src = SMODS.NFS.getDirectoryItems(SMODS.current_mod.path .. "src/Consumables")
 for _, file in ipairs(consumables_src) do
     assert(SMODS.load_file("src/Consumables/" ..file))()
+end
+
+local vouchers_src = SMODS.NFS.getDirectoryItems(SMODS.current_mod.path .. "src/Vouchers")
+for _, file in ipairs(vouchers_src) do
+    assert(SMODS.load_file("src/Vouchers/" .. file))()
+end
+
+local boosters_src = SMODS.NFS.getDirectoryItems(SMODS.current_mod.path .. "src/Boosters")
+for _, file in ipairs(boosters_src) do
+    assert(SMODS.load_file("src/Boosters/" .. file))()
 end
 
 --#endregion
@@ -62,22 +79,27 @@ SMODS.ConsumableType {
     config = {
 
     }, 
-    shop_rate = 1
+    shop_rate = 0.2
 }
 
-rawset(_G, "glowing_rate", 0.25)
+rawset(_G, "glowing_rate", 0.2)
 
 local native_create_shop = create_card_for_shop
 function create_card_for_shop(area, forced_tag)
     if G.GAME then
-        G.GAME.glowing_rate = G.GAME.glowing_rate or 0.25
+        G.GAME.glowing_rate = G.GAME.glowing_rate or 0.2
         if G.GAME.current_round then
-            G.GAME.current_round.glowing_rate = G.GAME.current_round.glowing_rate or 0.25
+            G.GAME.current_round.glowing_rate = G.GAME.current_round.glowing_rate or 0.2
         end
     end
-    _G.glowing_rate = 0.25
+    _G.glowing_rate = 0.2
     return native_create_shop(area, forced_tag)
 end
+
+
+--#endregion
+
+--#region Extra Code
 
 
 --#endregion

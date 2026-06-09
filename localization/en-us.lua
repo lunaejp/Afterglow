@@ -30,6 +30,14 @@ return {
                     'of the {C:hearts}Hearts{} suit.'
                 }
             }
+        },
+        Voucher = {
+            v_afterglow_boosted = {
+                name = 'Boosted',
+                text = {
+                    'Increases {C:attention}Booster Packs{} per shop to {C:attention}#1#{}'
+                }
+            }
         }
     }
 }
